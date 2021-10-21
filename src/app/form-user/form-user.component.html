@@ -1,0 +1,98 @@
+<h1>Create Account</h1>
+<form class="w-50 mx-auto" #f="ngForm">
+  <div class="form-group">
+    <label> Fisrt name</label>
+    <input type="text" name ="Fisrt name" class="form-control" [(ngModel)]="user.firstName"
+           required
+           minlength="3"
+           #fn="ngModel"
+           pattern="[a-zA-Z]+$"
+    >
+    <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+      <div *ngIf="fn.hasError('required')">First name is a required field</div>
+      <div *ngIf="fn.hasError('minlength')">Minlength is equal to 3</div>
+      <div *ngIf="fn.hasError('pattern')">Error pattern</div>
+    </div>
+    <label> Last name</label>
+    <input type="text" name ="Last name" class="form-control" [(ngModel)]="user.lastName"
+           required
+           minlength="3"
+           #fn2="ngModel"
+           pattern="[a-zA-Z]+$"
+    >
+    <div class="alert alert-danger" *ngIf="fn.invalid && fn2.touched">
+      <div *ngIf="fn.hasError('required')">Last name is a required field</div>
+      <div *ngIf="fn.hasError('minlength')">Minlength is equal to 3</div>
+      <div *ngIf="fn.hasError('pattern')">Error pattern</div>
+    </div>
+  </div>
+  <label>Birthday</label>
+  <input type="date" name ="Birthday" class="form-control" [(ngModel)]="user.birthDate"
+         required
+         #fn3="ngModel"
+  >
+  <div class="alert alert-danger" *ngIf="fn.invalid && fn3.touched">
+    <div *ngIf="fn.hasError('required')">Birthday is a required field</div>
+  </div>
+  <label>Email</label>
+  <input type="email" name ="email" class="form-control" [(ngModel)]="user.email"
+         required
+         #fn4="ngModel"
+         pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+  >
+  <div class="alert alert-danger" *ngIf="fn.invalid && fn4.touched">
+    <div *ngIf="fn.hasError('required')">Email is a required field</div>
+    <div *ngIf="fn.hasError('pattern')">Error pattern</div>
+  </div>
+  <label>Password</label>
+  <input id="password-field" [type]="show ? 'text' : 'password'" name ="password" class="form-control" [(ngModel)]="user.password"
+         required
+         #fn5="ngModel"
+         pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  >
+  <br>
+  <button class="btn btn-secondary" (click)="ShowPassword()">{{show ? 'Hide Password' : 'Show Password'}}</button>
+  <br>
+  <br>
+  <div class="alert alert-danger" *ngIf="fn.invalid && fn5.touched">
+    <div *ngIf="fn.hasError('required')">Password is a required field</div>
+    <div *ngIf="fn.hasError('pattern')">Error pattern</div>
+  </div>
+  <div class="p-3">
+    <li>Must contain 8 or more characters</li>
+    <li>At least one number</li>
+    <li>One uppercase and lowercase letter</li>
+  </div>
+  <label>Profession</label>
+  <input type="text" name ="profession" class="form-control" [(ngModel)]="user.profession"
+         required
+         #fn6="ngModel"
+         pattern = "[a-zA-Z]+$"
+  >
+  <div class="alert alert-danger" *ngIf="fn.invalid && fn6.touched">
+    <div *ngIf="fn.hasError('required')">Profession is a required field</div>
+    <div *ngIf="fn.hasError('pattern')">Error pattern</div>
+  </div>
+  <label>Account Category</label>
+  <select class="form-select" name="accountcategory" [(ngModel)]="user.accountCategory"
+          required
+          #fn7="ngModel"
+  >
+    <option value="admin" >Admin</option>
+    <option value="customer">Customer</option>
+    <option value="golden">Golden</option>
+    <option value="blocked">Blocked</option>
+  </select>
+  <div class="alert alert-danger" *ngIf="fn.invalid && fn7.touched">
+    <div *ngIf="fn.hasError('required')">Account Category is a required field</div>
+  </div>
+  <br>
+  <label>Choose a profile picture</label>
+  <br>
+  <input class="input-group" type="file" name="avatar" accept="image/png, image/jpeg" [(ngModel)]="user.picture">
+  <br>
+  <button class="btn btn-outline-success" [disabled]="f.invalid" (click)="save()">Save</button>
+  &nbsp;
+  <button class="btn btn-outline-warning" (click)="f.reset()">Reset</button>
+
+</form>
