@@ -26,6 +26,7 @@
       <div *ngIf="fn.hasError('pattern')">Error pattern</div>
     </div>
   </div>
+  <div class="form-group">
   <label>Birthday</label>
   <input type="date" name ="Birthday" class="form-control" [(ngModel)]="user.birthDate"
          required
@@ -34,6 +35,8 @@
   <div class="alert alert-danger" *ngIf="fn.invalid && fn3.touched">
     <div *ngIf="fn.hasError('required')">Birthday is a required field</div>
   </div>
+  </div>
+  <div class="form-group">
   <label>Email</label>
   <input type="email" name ="email" class="form-control" [(ngModel)]="user.email"
          required
@@ -44,6 +47,8 @@
     <div *ngIf="fn.hasError('required')">Email is a required field</div>
     <div *ngIf="fn.hasError('pattern')">Error pattern</div>
   </div>
+  </div>
+  <div class="form-group">
   <label>Password</label>
   <input id="password-field" [type]="show ? 'text' : 'password'" name ="password" class="form-control" [(ngModel)]="user.password"
          required
@@ -63,6 +68,8 @@
     <li>At least one number</li>
     <li>One uppercase and lowercase letter</li>
   </div>
+  </div>
+  <div class="form-group">
   <label>Profession</label>
   <input type="text" name ="profession" class="form-control" [(ngModel)]="user.profession"
          required
@@ -73,26 +80,18 @@
     <div *ngIf="fn.hasError('required')">Profession is a required field</div>
     <div *ngIf="fn.hasError('pattern')">Error pattern</div>
   </div>
-  <label>Account Category</label>
-  <select class="form-select" name="accountcategory" [(ngModel)]="user.accountCategory"
-          required
-          #fn7="ngModel"
-  >
-    <option value="admin" >Admin</option>
-    <option value="customer">Customer</option>
-    <option value="golden">Golden</option>
-    <option value="blocked">Blocked</option>
-  </select>
-  <div class="alert alert-danger" *ngIf="fn.invalid && fn7.touched">
-    <div *ngIf="fn.hasError('required')">Account Category is a required field</div>
   </div>
   <br>
   <label>Choose a profile picture</label>
   <br>
-  <input class="input-group" type="file" name="avatar" accept="image/png, image/jpeg" [(ngModel)]="user.picture">
+  <input type="text" name ="picture" class="form-control" [(ngModel)]="user.picture"
+         required
+  >
   <br>
   <button class="btn btn-outline-success" [disabled]="f.invalid" (click)="save()">Save</button>
   &nbsp;
   <button class="btn btn-outline-warning" (click)="f.reset()">Reset</button>
+
+
 
 </form>
