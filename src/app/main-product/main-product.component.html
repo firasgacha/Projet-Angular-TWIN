@@ -1,0 +1,12 @@
+<a routerLink="/bestSeller">Best Seller</a>
+<div class="row">
+  <app-product class="col-md-3" *ngFor="let object of listProduct"
+  [product]="object"
+  >
+    //proprety binding
+
+  </app-product>
+</div>
+<div>
+  <p>Publicité</p>
+</div>

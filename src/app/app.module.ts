@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainUserComponent } from './main-user/main-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { ProductComponent } from './product/product.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ListUserComponent } from './list-user/list-user.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { LoginComponent } from './login/login.component';
+import { MainProductComponent } from './main-product/main-product.component';
+import { BestSellerProductComponent } from './best-seller-product/best-seller-product.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     NavbarComponent,
     MainUserComponent,
-    ProductComponent,
     NotfoundComponent,
     HomeComponent,
     ListUserComponent,
     FormUserComponent,
-    LoginComponent
+    LoginComponent,
+    MainProductComponent,
+    BestSellerProductComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

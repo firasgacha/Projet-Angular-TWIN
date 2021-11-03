@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../services/user.service";
 
 @Component({
@@ -16,6 +16,11 @@ myForm: FormGroup;
       'email': new FormControl('',Validators.required),
       'pwd': new FormControl('',Validators.required),
       'confirmPwd': new FormControl('',Validators.required)
+      // private Fb : FormBuilder
+    // this.myForm=this.Fb.group({
+    //   'email': ['',Validators.required],
+    //   'pwd': ['',Validators.required],
+    //   'confirmPwd': ['',Validators.required]
     })
   }
   login(f: FormGroup){
@@ -23,7 +28,7 @@ myForm: FormGroup;
     let test = false;
     this.userService.list.forEach((user)=>{
       if(user.email === f.controls['email'].value && user.email === f.controls['pwd'].value){
-        test = true
+        test = true;
       }
     })
     console.log(test);
