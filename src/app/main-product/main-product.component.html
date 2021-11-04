@@ -1,10 +1,7 @@
 <a routerLink="/bestSeller">Best Seller</a>
 <div class="row">
   <app-product class="col-md-3" *ngFor="let object of listProduct"
-  [product]="object" (notification)="like($event)"
-  >
-    //proprety binding
-
+  [product]="object" (notification)="like($event)">
   </app-product>
 </div>
 <div>
